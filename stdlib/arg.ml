@@ -293,13 +293,13 @@ let parse_and_expand_argv_dynamic ?(allow_hyphen_values=true) current
   parse_and_expand_argv_dynamic_aux ~allow_hyphen_values:allow_hyphen_values true
     current argv speclist anonfun errmsg
 
-let parse_argv_dynamic ?(current=current) ?(allow_hyphen_values=true) argv
+let parse_argv_dynamic ?(allow_hyphen_values=true) ?(current=current) argv
                        speclist anonfun errmsg =
   parse_and_expand_argv_dynamic_aux ~allow_hyphen_values:allow_hyphen_values
     false current (ref argv) speclist anonfun errmsg
 
 
-let parse_argv ?(current=current) ?(allow_hyphen_values=true) argv
+let parse_argv ?(allow_hyphen_values=true) ?(current=current) argv
                speclist anonfun errmsg =
   parse_argv_dynamic ~current:current ~allow_hyphen_values:allow_hyphen_values
     argv (ref speclist) anonfun errmsg
